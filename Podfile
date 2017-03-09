@@ -7,5 +7,7 @@ target 'InstaParse' do
 
   # Pods for InstaParse
   pod 'AFNetworking'
+  pod 'BDBOAuth1Manager'
+  pod 'Parse'
 
 end
