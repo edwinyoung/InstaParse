@@ -85,11 +85,12 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Rfm-yT-Oam" id="ftd-MR-3mr"/>
                         <outlet property="usernameTextField" destination="Un0-Uo-sDw" id="r1j-Tc-2AY"/>
+                        <segue destination="m0l-C3-KG3" kind="show" identifier="Login Segue" id="EiG-EY-zfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055.2" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1054" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7J0-8X-RvA">
@@ -105,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bei-h7-yZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="942"/>
+            <point key="canvasLocation" x="2012" y="123"/>
         </scene>
         <!--Home-->
         <scene sceneID="jOw-sw-wRJ">
@@ -120,11 +121,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HdK-Ph-Wks">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5HW-ho-g9A" customClass="PostCell" customModule="InstaParse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" id="5HW-ho-g9A" customClass="PostCell" customModule="InstaParse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5HW-ho-g9A" id="3kP-Cz-SCn">
@@ -143,13 +144,16 @@
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="riH-te-qpT" eventType="touchUpInside" id="kb1-8b-18l"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6V-Fz-WOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="942"/>
+            <point key="canvasLocation" x="1054" y="985"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uZc-Cu-02q">

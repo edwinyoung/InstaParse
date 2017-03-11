@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
 
@@ -31,5 +32,10 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+	@IBAction func onLogout(_ sender: UIButton) {
+		PFUser.logOut()
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "User logged out"), object: nil)
+		self.performSegue(withIdentifier: "Logout Segue", sender: nil)
+	}
 
 }

@@ -26,6 +26,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			})
 		)
 		
+		if PFUser.current() != nil {
+			let username = PFUser.current()?.username
+			print("Logged in as \(username!)")
+			
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let viewController = storyboard.instantiateViewController(withIdentifier: "Home Navigation Controller")
+			
+			window?.rootViewController = viewController
+		}
+		
+		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "User logged out"), object: nil, queue: OperationQueue.main) { (Notification) in
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let viewController = storyboard.instantiateInitialViewController()
+			
+			self.window?.rootViewController = viewController
+		}
+		
 		return true
 	}
 	
