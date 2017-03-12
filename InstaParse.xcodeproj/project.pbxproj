@@ -91,13 +91,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D97389141E71F5CB005D9703 /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = APIs;
-			sourceTree = "<group>";
-		};
 		D9C88E091E6E4717006D503D = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +112,6 @@
 		D9C88E141E6E4717006D503D /* InstaParse */ = {
 			isa = PBXGroup;
 			children = (
-				D97389141E71F5CB005D9703 /* APIs */,
 				D97389131E71F5C2005D9703 /* Models */,
 				D97389121E71F5BD005D9703 /* Views */,
 				D97389111E71F5B3005D9703 /* Controllers */,

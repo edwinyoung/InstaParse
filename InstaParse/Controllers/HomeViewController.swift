@@ -20,9 +20,17 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 		super.viewDidLoad()
 		
 		// Do any additional setup after loading the view.
+		tableView.delegate = self
+		tableView.dataSource = self
+		
 		refreshControl.addTarget(self, action: #selector(HomeViewController.refreshControlAction), for: UIControlEvents.valueChanged)
 		tableView.insertSubview(refreshControl, at: 0)
 		
+		fetchPostsInBackground()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		fetchPostsInBackground()
 	}
 	
@@ -41,7 +49,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-		cell.data = posts[indexPath.row]
+		cell.postData = posts[indexPath.row]
 		
 		return cell
 	}
@@ -57,6 +65,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 			if let posts = posts {
 				self.posts = posts
 				self.tableView.reloadData()
+				self.refreshControl.endRefreshing()
 			} else {
 				print("error")
 			}
@@ -116,7 +125,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 	*/
 	@IBAction func onLogout(_ sender: UIButton) {
 		PFUser.logOut()
-		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "User logged out"), object: nil)
+		// NotificationCenter.default.post(name: NSNotification.Name(rawValue: "User logged out"), object: nil)
 		self.performSegue(withIdentifier: "Logout Segue", sender: nil)
 	}
 	

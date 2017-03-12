@@ -11,20 +11,17 @@ import Parse
 
 class PostCell: UITableViewCell {
 	
-	
-	
-	
 	@IBOutlet weak var postIV: UIImageView!
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var captionLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
 	
-	var data: PFObject! {
+	var postData: PFObject! {
 		didSet {
-			let user = data.object(forKey: "author") as? PFUser
-			let date = data.object(forKey: "date") as? Date
+			let user = postData.object(forKey: "author") as? PFUser
+			let date = postData.object(forKey: "date") as? Date
 			
-			captionLabel.text = data.object(forKey: "caption") as? String
+			captionLabel.text = postData.object(forKey: "caption") as? String
 			
 			// Set date created if one is available
 			if date != nil {
@@ -40,7 +37,7 @@ class PostCell: UITableViewCell {
 				usernameLabel.text = user?.username!
 			}
 			
-			let dataData = data.object(forKey: "media") as? PFFile
+			let dataData = postData.object(forKey: "media") as? PFFile
 			dataData?.getDataInBackground(block: { (datainfo: Data?, error: Error?) in
 				if(error == nil) {
 					let picture = UIImage(data: datainfo!)
