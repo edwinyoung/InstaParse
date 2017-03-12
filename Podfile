@@ -6,8 +6,7 @@ target 'InstaParse' do
   use_frameworks!
 
   # Pods for InstaParse
-  pod 'AFNetworking'
-  pod 'BDBOAuth1Manager'
   pod 'Parse'
+  pod 'EZLoadingActivity'
 
 end
